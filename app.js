@@ -2,7 +2,14 @@ const express = require('express');
 const mysql = require('mysql2');
 const bcrypt = require('bcrypt'); // Importe a biblioteca bcrypt
 const app = express();
-const port = 5000;
+const port = 3000;
+const cors = require('cors');
+
+// Habilitando o CORS para todas as origens
+app.use(cors());
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Configuração da conexão com o MySQL
 const connection = mysql.createConnection({
@@ -110,6 +117,6 @@ app.post('/login', (req, res) => {
 
 // Restante do seu código...
 
-app.listen(port, () => {
-  console.log(`Server is listening at http://localhost:${port}`);
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
 });
